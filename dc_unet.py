@@ -83,7 +83,8 @@ def Build_Model():
   
   #Bottleneck
   DC_BLOCK5 = Dual_Channel(P4, 142, 284, 427)
-
+  
+  #Decoder part
   up1 = Conv2DTranspose(256, kernel_size = 5, strides = 2, padding = 'same')(DC_BLOCK5)
   Res_add1 = Concatenate(axis = 3)([up1, RES_PATH4_L1])
   DC_BLOCK6 = Dual_Channel(Res_add1, 71, 142, 213)
